@@ -73,7 +73,7 @@ router.post('/',async(req,res)=>{
     }
   })
 
-  // method to delete the data afrom mongodb
+  // method to delete the data from mongodb
   router.delete('/:id',async(req,res)=>{
     try{
       const menuId = req.params.id;
@@ -90,4 +90,5 @@ router.post('/',async(req,res)=>{
     }
   })
 
+ // comment edit for texting purpose
   module .exports = router;

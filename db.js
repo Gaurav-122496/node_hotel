@@ -1,49 +1,17 @@
-// const mongoose = require('mongoose');
-
-// // define the mongodb  connection url
-
-// const mongoURL='mongodb://localhost:27017/hotels' // you can replace with your database name
-
-// // set up mongodb connection
-
-// mongoose.connect(mongoURL,{
-//     useNewUrlParser:true,
-//     useUnifiedTopology:true
-// })
-
-// const db= mongoose.connection;
-
-// // define the event listners for database connection 
-// db.on('Connected',()=>{
-//     console.log('connected to mongodb server');
-
-// });
-
-// db.on('error',(err)=>{
-//     console.log('mongo db connection error');
-
-// });
-
-// db.on('disconnected',()=>{
-//     console.log(' mongodb disconnected ');
-
-// });
-
-// // Exports the databese connection 
-
-// module.exports= db;
-
-
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Define the MongoDB connection URL
-const mongoURL = 'mongodb://localhost:27017/hotels'; // you can replace with your database name
+
+ const mongoURL = process.env.MONGODB_URL_LOCAL;   //'mongodb://localhost:27017/hotels';   // you can replace with your database name
+
+// url for mogo atlas online 
+// const mongoURL= 'mongodb+srv://gaurav:happy555@cluster0.c23kfb8.mongodb.net/';
 
 mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 // // Set up MongoDB connection
-
   .then(() => {
     console.log('Connected to MongoDB sever');
   })
@@ -53,6 +21,3 @@ mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
 
   // export the database coonection 
   module.exports = mongoose.connection;
-
-
-  
